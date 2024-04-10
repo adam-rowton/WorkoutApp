@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:">
+      location = "self:/Users/adam.rowton/Documents/Mobile Dev/Countdown/WorkoutApp.xcodeproj">
    </FileRef>
 </Workspace>

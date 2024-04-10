@@ -6,12 +6,17 @@
 //
 
 import SwiftUI
+import SwiftData
 
 @main
-struct CountdownApp: App {
+struct IntervalTimer: App {
+    
+
     var body: some Scene {
         WindowGroup {
-            ContentView()
+               ContentView()
+               .modelContainer(for: [Exercise.self, Workout.self])
+           
         }
     }
 }
