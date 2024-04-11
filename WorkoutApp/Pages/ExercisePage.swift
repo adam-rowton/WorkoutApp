@@ -9,31 +9,61 @@ import SwiftUI
 import SwiftData
 
 struct ExercisePage: View {
-  
+    
+    @Environment(\.modelContext) private var context
     @Environment(\.dismiss) var dismiss
     
     @State private var isShowingSheet = false
-   @Query var exercises: [Exercise]
+    @Query var exercises: [Exercise]
     
     var body: some View {
         
-        NavigationView {
+        NavigationStack {
             List {
-                ForEach(exercises) { item in
-                    Text("\(item.name)")
-                    Text("\(item.activeTime)")
-                }
-                Button {
-                    isShowingSheet.toggle()
-                } label: {
-                    Text("add exercise")
+                ForEach(exercises) { exercise in
+//                    NavigationLink(exercise.name, value: exercise)
+                    listItem(exercise: exercise)
                 }
                 
-                
-            }.navigationTitle("Exercises")
-             .sheet(isPresented: $isShowingSheet) { ExerciseEditor() }
+                .onDelete{ indexSet in
+                    for index in indexSet {
+                        context.delete(exercises[index])
+                    }
+                }
+                    if exercises.isEmpty {
+                        Button {
+                            isShowingSheet.toggle()
+                        } label: {
+                            Text("add exercise")
+                        }
+                    }
+            }
+            .navigationTitle("Exercises")
+            .sheet(isPresented: $isShowingSheet) { ExerciseEditor() }
+            .toolbar{
+                    if !exercises.isEmpty { Button {
+                        isShowingSheet.toggle()
+                    } label: {
+                        Text("add exercise")
+                    }
+                }
+            }
+            
         }
         
+    }
+}
+
+
+struct listItem: View{
+    let exercise: Exercise
+    
+    var body: some View {
+        HStack{
+            Text("\(exercise.name)")
+            Text("\(exercise.activeTime)")
+            Text("\(exercise.activeTime)")
+        }
     }
 }
 

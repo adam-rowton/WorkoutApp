@@ -33,7 +33,7 @@ struct WorkoutsPage: View {
                 Button {
                     isShowingSheet.toggle()
                 } label: {
-                    Text("add exercise")
+                    Text("Create Workout")
                 }
                 
                 
