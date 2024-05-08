@@ -16,7 +16,7 @@ struct ContentView: View {
                     Image(systemName: "dumbbell.fill")
                     Text("Workouts")
                 }
-            ExercisePage()
+            ExercisesListPage()
                 .tabItem {
                     Image(systemName: "clock")
                     Text("Exercises")

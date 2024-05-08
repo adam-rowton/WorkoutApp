@@ -8,21 +8,25 @@
 import SwiftUI
 import SwiftData
 
-struct ExercisePage: View {
+struct ExercisesListPage: View {
     
     @Environment(\.modelContext) private var context
     @Environment(\.dismiss) var dismiss
     
     @State private var isShowingSheet = false
     @Query var exercises: [Exercise]
+    @State var selectedExercise: Exercise?
     
     var body: some View {
         
         NavigationStack {
-            List {
+            List(selection: $selectedExercise){
+             
                 ForEach(exercises) { exercise in
-//                    NavigationLink(exercise.name, value: exercise)
-                    listItem(exercise: exercise)
+                    NavigationLink("\(exercise.name)"){
+                        ExerciseTimer(exercise: exercise)
+                    }
+//                    listItem(exercise: exercise)
                 }
                 
                 .onDelete{ indexSet in
@@ -70,6 +74,6 @@ struct listItem: View{
 
 struct TimersPage_Previews: PreviewProvider {
     static var previews: some View {
-        ExercisePage()
+        ExercisesListPage()
     }
 }

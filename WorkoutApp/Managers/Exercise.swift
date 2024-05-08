@@ -21,6 +21,10 @@ class Exercise {
         self.restTime = restTime
         self.sets = sets
     }
+    static func example() -> Exercise {
+        let exercise = Exercise(name: "Bench", activeTime: 60, restTime: 120, sets: 5)
+        return exercise
+    }
 }
 
 
