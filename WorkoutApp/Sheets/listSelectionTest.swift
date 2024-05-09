@@ -8,73 +8,49 @@
 import SwiftUI
 import SwiftData
 
-struct WorkoutEditortest: View {
-    @Environment(\.dismiss) var dismiss
-    
-    @Environment(\.modelContext) private var context
-    @State var selectedExercises: [Exercise] = []
-    
-    @State private var workoutName: String = ""
-    @State var isShowingSheet = false
-    
-    @Query var exercises: [Exercise]
-    
+
+  
+    struct MultipleSelectionList: View {
+        
+        
+        @Environment(\.modelContext) private var context
+        @Query var exercises: [Exercise]
+        @State var isShowingSheet = false
+        @State var selections: [Exercise] = []
+
+        var body: some View {
+            List {
+                ForEach(self.exercises, id: \.self) { exercise in
+                    MultipleSelectionRow(title: exercise.name, isSelected: self.selections.contains(exercise)) {
+                        if self.selections.contains(exercise) {
+                            self.selections.removeAll(where: { $0 == exercise })
+                        }
+                        else {
+                            self.selections.append(exercise)
+                        }
+                    }
+                }
+            }
+        }
+    }
+struct MultipleSelectionRow: View {
+    var title: String
+    var isSelected: Bool
+    var action: () -> Void
+
     var body: some View {
-        VStack {
-            VStack {
-                HStack {
-                    Button {
-                        dismiss()
-                    } label: {
-                        Text("Cancel")
-                    }
-                    
+        Button(action: self.action) {
+            HStack {
+                Text(self.title)
+                if self.isSelected {
                     Spacer()
-                    
-                    Button {
-                        // context.insert(exercise)
-                        try! context.save()
-                        dismiss()
-                        //save
-                    } label: {
-                        Text("Save")
-                    }
+                    Image(systemName: "checkmark")
                 }
-                TextField("Exercise Name", text: $workoutName)
-            }.padding(20)
-            VStack {
-                if selectedExercises.isEmpty {
-                    VStack {
-                        Text("No Exercises Selected")
-                        Button {
-                            isShowingSheet.toggle()
-                        } label: {
-                            Text("Add An Exercise")
-                        }
-                    }
-                  
-                } else {
-                    List{
-                        ForEach(selectedExercises){ exercise in
-                            Text(exercise.name)
-                        }
-                    }
-                    .sheet(isPresented: $isShowingSheet) {
-                        ExerciseSelectionSheet().presentationDetents([.medium]) }
-                    
-                    Button {
-                        isShowingSheet.toggle()
-                    } label: {
-                        Text("Add Another Exercise")
-                    }
-                }
-                
             }
         }
     }
 }
 
-
 #Preview {
-    WorkoutEditortest()
+    MultipleSelectionList()
 }

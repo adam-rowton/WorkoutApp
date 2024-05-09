@@ -12,6 +12,8 @@
 		6032EC3D2BC4FCD50035790C /* SetsPickerVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6032EC3C2BC4FCD50035790C /* SetsPickerVIew.swift */; };
 		6032EC402BC670530035790C /* WorkoutEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6032EC3F2BC670530035790C /* WorkoutEditor.swift */; };
 		604642E12BEAE61900661DBF /* ModelPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604642E02BEAE61900661DBF /* ModelPreview.swift */; };
+		604642E32BEBC6CB00661DBF /* ExerciseSelectionSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604642E22BEBC6CB00661DBF /* ExerciseSelectionSheet.swift */; };
+		604642E52BEC1C8500661DBF /* listSelectionTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 604642E42BEC1C8500661DBF /* listSelectionTest.swift */; };
 		606EA07A2BB5D48A0023F6DC /* WorkoutsListPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 606EA0792BB5D48A0023F6DC /* WorkoutsListPage.swift */; };
 		606EA0802BBA703A0023F6DC /* Workout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 606EA07F2BBA703A0023F6DC /* Workout.swift */; };
 		609B51CB2BD5B51B007F17A6 /* PreviewSampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 609B51CA2BD5B51B007F17A6 /* PreviewSampleData.swift */; };
@@ -34,6 +36,8 @@
 		6032EC3C2BC4FCD50035790C /* SetsPickerVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetsPickerVIew.swift; sourceTree = "<group>"; };
 		6032EC3F2BC670530035790C /* WorkoutEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutEditor.swift; sourceTree = "<group>"; };
 		604642E02BEAE61900661DBF /* ModelPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelPreview.swift; sourceTree = "<group>"; };
+		604642E22BEBC6CB00661DBF /* ExerciseSelectionSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseSelectionSheet.swift; sourceTree = "<group>"; };
+		604642E42BEC1C8500661DBF /* listSelectionTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = listSelectionTest.swift; sourceTree = "<group>"; };
 		606EA0792BB5D48A0023F6DC /* WorkoutsListPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutsListPage.swift; sourceTree = "<group>"; };
 		606EA07F2BBA703A0023F6DC /* Workout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Workout.swift; sourceTree = "<group>"; };
 		609B51CA2BD5B51B007F17A6 /* PreviewSampleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewSampleData.swift; sourceTree = "<group>"; };
@@ -69,6 +73,8 @@
 				6032EC342BC47E180035790C /* ActivePickerView.swift */,
 				6032EC3C2BC4FCD50035790C /* SetsPickerVIew.swift */,
 				6032EC3F2BC670530035790C /* WorkoutEditor.swift */,
+				604642E42BEC1C8500661DBF /* listSelectionTest.swift */,
+				604642E22BEBC6CB00661DBF /* ExerciseSelectionSheet.swift */,
 				604642DF2BEAE00A00661DBF /* Preview Helpers */,
 			);
 			path = Sheets;
@@ -222,6 +228,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				604642E52BEC1C8500661DBF /* listSelectionTest.swift in Sources */,
+				604642E32BEBC6CB00661DBF /* ExerciseSelectionSheet.swift in Sources */,
 				609B51CB2BD5B51B007F17A6 /* PreviewSampleData.swift in Sources */,
 				606EA07A2BB5D48A0023F6DC /* WorkoutsListPage.swift in Sources */,
 				6032EC402BC670530035790C /* WorkoutEditor.swift in Sources */,

@@ -12,14 +12,17 @@ struct WorkoutEditor: View {
     @Environment(\.dismiss) var dismiss
     
     @Environment(\.modelContext) private var context
+    @State var selectedExercises: [Exercise] = []
     
-
+    @State private var workoutName: String = ""
+    @State var isShowingSheet = false
+    
     @Query var exercises: [Exercise]
+    
     var body: some View {
         VStack {
             VStack {
                 HStack {
-                    
                     Button {
                         dismiss()
                     } label: {
@@ -29,7 +32,7 @@ struct WorkoutEditor: View {
                     Spacer()
                     
                     Button {
-                        
+                        // context.insert(exercise)
                         try! context.save()
                         dismiss()
                         //save
@@ -37,12 +40,40 @@ struct WorkoutEditor: View {
                         Text("Save")
                     }
                 }
-//                TextField("Workout Name", text: )
-                
+                TextField("Exercise Name", text: $workoutName)
             }.padding(20)
         }
+        
+        if selectedExercises.isEmpty {
+            VStack{
+                Text("No Exercises Selected")
+                Button {
+                    isShowingSheet.toggle()
+                } label: {
+                    Text("Add An Exercise")
+                }
+            }.sheet(isPresented: $isShowingSheet) {
+                MultipleSelectionList().presentationDetents([.medium]) }
+        } else {
+            List{
+                ForEach(selectedExercises){ exercise in
+                    Text(exercise.name)
+                }
+            }
+            .sheet(isPresented: $isShowingSheet) {
+                MultipleSelectionList().presentationDetents([.medium]) }
+            
+            Button {
+                isShowingSheet.toggle()
+            } label: {
+                Text("Add Another Exercise")
+            }
+        }
+        
     }
 }
+
+
 
 
 #Preview {
