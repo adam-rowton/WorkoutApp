@@ -8,7 +8,7 @@
 import Foundation
 import SwiftData
 
-let previewContainer: ModelContainer = {
+let exercisePreviewContainer: ModelContainer = {
 
     do {    
         let container = try ModelContainer(for: Exercise.self,
@@ -19,8 +19,14 @@ let previewContainer: ModelContainer = {
             let context = container.mainContext
             
             let exercise = Exercise.example()
+            let exercise2 = Exercise.example2()
+            let exercise3 = Exercise.example3()
+
+            
             
             context.insert(exercise)
+            context.insert(exercise2)
+            context.insert(exercise3)
         }
         return container
  } catch {

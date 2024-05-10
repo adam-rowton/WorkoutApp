@@ -18,7 +18,7 @@ struct ModelPreview<Model: PersistentModel, Content: View>: View {
     
     var body: some View {
         PreviewContentView(content: content)
-            .modelContainer(previewContainer)
+            .modelContainer(exercisePreviewContainer)
     }
     
     struct PreviewContentView: View {

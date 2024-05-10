@@ -10,7 +10,7 @@ import SwiftData
 
 
   
-    struct MultipleSelectionList: View {
+    struct ExerciseSelectionSheet: View {
         
         
         @Environment(\.modelContext) private var context
@@ -52,5 +52,11 @@ struct MultipleSelectionRow: View {
 }
 
 #Preview {
-    MultipleSelectionList()
+    ExerciseSelectionSheet()
+}
+
+#Preview { 
+  
+    ExerciseSelectionSheet()
+        .modelContainer(exercisePreviewContainer)
 }

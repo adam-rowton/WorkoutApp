@@ -42,18 +42,18 @@ struct WorkoutEditor: View {
                 }
                 TextField("Exercise Name", text: $workoutName)
             }.padding(20)
-        }
+       Spacer()
         
         if selectedExercises.isEmpty {
             VStack{
-                Text("No Exercises Selected")
+//                Text("No Exercises Selected")
                 Button {
                     isShowingSheet.toggle()
                 } label: {
-                    Text("Add An Exercise")
+                    Text("Add Exercises")
                 }
             }.sheet(isPresented: $isShowingSheet) {
-                MultipleSelectionList().presentationDetents([.medium]) }
+                ExerciseSelectionSheet().presentationDetents([.medium]) }
         } else {
             List{
                 ForEach(selectedExercises){ exercise in
@@ -61,7 +61,7 @@ struct WorkoutEditor: View {
                 }
             }
             .sheet(isPresented: $isShowingSheet) {
-                MultipleSelectionList().presentationDetents([.medium]) }
+                ExerciseSelectionSheet().presentationDetents([.medium]) }
             
             Button {
                 isShowingSheet.toggle()
@@ -69,7 +69,8 @@ struct WorkoutEditor: View {
                 Text("Add Another Exercise")
             }
         }
-        
+            Spacer()
+    }
     }
 }
 
@@ -78,4 +79,5 @@ struct WorkoutEditor: View {
 
 #Preview {
     WorkoutEditor()
+        .modelContainer(exercisePreviewContainer)
 }

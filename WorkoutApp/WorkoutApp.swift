@@ -9,7 +9,7 @@ import SwiftUI
 import SwiftData
 
 @main
-struct IntervalTimer: App {
+struct WorkoutApp: App {
     
 
     var body: some Scene {
